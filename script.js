@@ -1,77 +1,50 @@
+const Country = document.getElementById('Country');
+const Humidity = document.getElementById('Humidity');
+const Condition = document.getElementById('Condition');
+const Temp = document.getElementById('Temp');
+const FeelsLike = document.getElementById('FeelsLike');
+const Rainchance = document.getElementById('Rainchance');
+
 const SubmitBtn = document.getElementById('SubmitBtn');
-
 let UserInput = document.querySelector('#UserInput');
-
-const StartLocation = 'Netherlands';
-const ErrorMsg = 'je moeder';
+const StartLocation = 'berlin';
 
 SubmitBtn.addEventListener('click', DifferentLocation);
 
-function RefreshGiphy(UserInput){
-    //getting the api data --> outputting a response
+function DifferentLocation(e){
+    e.preventDefault();
+    RefreshLocation(UserInput.value);
+    UserInput.value = '';
+}
+
+//getting the API data and setting it to variables --> for CELCIUS
+function RefreshLocation(UserInput){
     fetch('https://api.weatherapi.com/v1/forecast.json?key=1986480656ec490d950204923202611&q=' + UserInput, {mode: 'cors'})
 
-    //then --> turning the result into a json file so the data is useable
     .then(function(response) {
         return response.json();
     })
-
-    //then --> logging the specific Location data to the console
     .then(function(response){
-        console.log(response); //logs the whole object
-
-        //first column 
-        /*
-            search-bar:, date:, country:, sunny rainy thunder etc, 
-        */
-        console.log("Country: " + response["location"]["name"]); //country name
-        console.log("temperature");
-
-        //second column
-        /*
-            text:, every hour of the day:, with the temps.
-        */
-        console.log("Condition: " + response["forecast"]["forecastday"]["0"]["day"]["condition"]["text"]); //Condition
-        console.log("Sunset: " + response["forecast"]["forecastday"]["0"]["astro"]["sunset"]); //sunrise
-        console.log("Sunrise: " + response["forecast"]["forecastday"]["0"]["astro"]["sunrise"]); //sunset
-
-        //third column
-        //7 day forecast.
-
-        //fourth column
-        /*  
-            Air quality
-        */
-
-        
-        //fifth column
-        /*  
-            Precipitation
-        */
-
-        //last column
-        /*
-            sunset-sunrise
-            humidity
-            visibility
-            rainfall-snowfall
-            wind
-            uv-index
-        */
-            
+        console.log(response);
+        const a = response.location.country;
+        const b = response.current.temp_c;
+        const c = response.current.feelslike_c;
+        const d = response["forecast"]["forecastday"]["0"]["day"]["daily_chance_of_rain"];
+        const e = response.current.humidity;
+        const f = response.current.condition.text;
+        console.log(a, b + "°C", c + "°C", d + "%", e + "%", f);
+        RenderPage(a, b, c, d, e, f);
     })
-
-    //then 'catch' the error message when there is no location found
-    .catch(function(){
-        console.log(ErrorMsg)
-    });
 }
 
-//when clicking submit buttons, the page renders witht the new location(userinput)
-function DifferentLocation(e){
-    e.preventDefault();
-    RefreshGiphy(UserInput.value);
-    UserInput.value = ''; //clears the typed in user input
-}
+RefreshLocation(StartLocation);
 
-RefreshGiphy(StartLocation);
+//build page with API data
+function RenderPage(country, humidity, condition, temp, feelsLike, rainchance){
+    Country.textContent = country;
+    Humidity.textContent = humidity;
+    Condition.textContent = condition;
+    Temp.textContent = temp;
+    FeelsLike.textContent = feelsLike;
+    Rainchance.textContent = rainchance;
+}
