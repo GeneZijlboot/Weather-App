@@ -28,19 +28,22 @@ body{
 }
 
 #data{
-    margin-top: 45px;
+    margin-top: 25px;
     height: 365px;
     text-align: center;
 }
 
+#layer1{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
 #date{
-    margin-top: 20px;
-    margin-left: 230px;
     color: snow;
     border-radius: 25px;
     background-color: #2182a4;
     padding: 10px;
-    width: 130px;
 }
 
 #Upper{
@@ -110,3 +113,74 @@ form{
     text-decoration: none;
     color: white;
 }
+
+/*toggle switch*/
+.switch input {
+    position: absolute;
+    opacity: 0;
+}
+  
+.switch {
+    display: inline-block;
+    font-size: 30px;
+    height: 1em;
+    width: 2em;
+    background: #2182a4;;
+    border-radius: 1em;
+}
+  
+.switch div {
+    height: 1em;
+    width: 1em;
+    border-radius: 1em;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0.1em 0.3em rgba(0,0,0,0.3);
+    -webkit-transition: all 300ms;
+       -moz-transition: all 300ms;
+            transition: all 300ms;
+}
+  
+.switch input:checked + div {
+    -webkit-transform: translate3d(100%, 0, 0);
+       -moz-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+}
+
+.toggle .labels {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: sans-serif;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .labels::after {
+    content: attr(data-off);
+    position: absolute;
+    right: 5px;
+    color: #4d4d4d;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .labels::before {
+    content: attr(data-on);
+    position: absolute;
+    left: 5px;
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle input:checked~.labels::after {
+    opacity: 0;
+  }
+
+  .toggle input:checked~.labels::before {
+    opacity: 1;
+  }
