@@ -19,7 +19,7 @@ body{
 }
 
 #Container{
-    margin-top: 12vh;
+    margin-top: 7vh;
     height: 550px;
     width: 400px;
     box-shadow: 5px 5px 12px #042937;
@@ -28,13 +28,23 @@ body{
 }
 
 #data{
-    margin-top: 60px;
-    height: 410px;
+    margin-top: 45px;
+    height: 365px;
     text-align: center;
 }
 
+#date{
+    margin-top: 20px;
+    margin-left: 230px;
+    color: snow;
+    border-radius: 25px;
+    background-color: #2182a4;
+    padding: 10px;
+    width: 130px;
+}
+
 #Upper{
-    height: 260px;
+    height: 215px;
 }
 
 #Details{
@@ -88,6 +98,15 @@ form{
 
 #SubmitBtn:hover{
     cursor: pointer;
-    border: solid 1px aquamarine;
-    background-color: aquamarine;
+    border: solid 1px #2182a4;
+    background-color: #2182a4;
+}
+
+#MadeBy, a{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
 }

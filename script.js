@@ -4,6 +4,7 @@ const Condition = document.getElementById('Condition');
 const Temp = document.getElementById('Temp');
 const FeelsLike = document.getElementById('FeelsLike');
 const Rainchance = document.getElementById('Rainchance');
+const Dates = document.getElementById('date');
 
 const SubmitBtn = document.getElementById('SubmitBtn');
 let UserInput = document.querySelector('#UserInput');
@@ -32,18 +33,23 @@ function RefreshLocation(UserInput){
         const d = response.current.temp_c;
         const e = response.current.feelslike_c;
         const f = response["forecast"]["forecastday"]["0"]["day"]["daily_chance_of_rain"];
-        RenderPage(a, b, c, d, e, f);
+        const g = response.location.localtime;
+        RenderPage(a, b, c, d, e, f, g);
+    })
+    .catch(function(error) {
+        console.log(error);
     })
 }
 
 RefreshLocation(StartLocation);
 
 //build page with API data
-function RenderPage(country, wind, condition, temp, feelsLike, rainchance){
+function RenderPage(country, wind, condition, temp, feelsLike, rainchance, date){
     Country.innerHTML = `<i class="material-icons" style="font-size:30px;color:snow">&#xe55f</i>` + country;
     Wind.textContent = wind + "kph";
     Condition.textContent = condition;
     Temp.textContent = temp + "°C";
     FeelsLike.textContent = feelsLike + "°C";
     Rainchance.textContent = rainchance + "%";
+    Dates.textContent = date;
 }
