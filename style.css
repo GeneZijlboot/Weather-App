@@ -1,75 +1,93 @@
+p{
+  margin:0;
+  padding:0;
+  color: snow;
+}
+
+img{
+    width: 25px;
+    height: 25px;
+    margin: 15px;
+}
+
 body{
-    background-color: rgb(29, 136, 91);
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color:#245e73;
+    backdrop-filter: blur(1100px);
 }
 
 #Container{
+    margin-top: 12vh;
+    height: 550px;
+    width: 400px;
+    box-shadow: 5px 5px 12px #042937;
+    border-radius: 25px;
+    background-color:#2596be;
+}
+
+#data{
+    margin-top: 60px;
+    height: 410px;
+    text-align: center;
+}
+
+#Upper{
+    height: 260px;
+}
+
+#Details{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    Gap: 20px;
+    justify-content: space-around;
+    background-color: #2182a4;
+    border-radius: 25px;
+    margin: 20px;
+    padding: 10px;
+    height: 100px;
+}
+
+/* Weather Information Styling */
+
+#Country{
+    font-size: 40px;
+}
+
+#Temp{
+    font-size: 50px;
+    margin: 20px;
+}
+
+#Condition{
+    font-size: 25px;
 }
 
 form{
-    margin-top: 50px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
 }
 
-#Location{
-    cursor: pointer;
+#UserInput{
+    border-radius: 50px;
+    border: solid 1px snow;
+    padding: 10px;
+    width: 300px;
+    font-size: 15px;
 }
 
-#MadeBy, a{
-    font-size: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
+#SubmitBtn{
+    border: solid 1px snow;
+    background-color: snow;
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+    border-radius: 50%; 
 }
 
-/*SliderStyling*/
-.switch {
-    display: inline-block;
-    height: 34px;
-    position: relative;
-    width: 60px;
-}
-  
-.switch input {
-    display:none;
-}
-  
-.slider {
-    background-color: #ccc;
-    bottom: 0;
+#SubmitBtn:hover{
     cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-}
-  
-.slider:before {
-    background-color: #fff;
-    bottom: 4px;
-    content: "";
-    height: 26px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 26px;
-}
-  
-input:checked + .slider {
-    background-color: #66bb6a;
-}
-  
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-  
-.slider.round {
-    border-radius: 34px;
-}
-  
-.slider.round:before {
-    border-radius: 50%;
+    border: solid 1px aquamarine;
+    background-color: aquamarine;
 }

@@ -4,27 +4,44 @@
         <meta charset="UTF-8">
         <title>Weather App</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Search icon -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- location icon -->
     </head>
     <body>
         <div id="Container">
-            <form>
-                <input id="UserInput" type="text" placeholder="different Location">
-                <input id="SubmitBtn" type="submit">
-            </form>
+            <!-- Weather Information -->
             <div id="data">
-                <p id="Country"></p>
-                <p id="Humidity"></p>
-                <p id="Condition"></p>
-                <p id="Temp"></p>
-                <p id="FeelsLike"></p>
-                <p id="Rainchance"></p>
+                <div id="Upper">
+                    <p id="Country"></p>
+                    <p id="Temp"></p>
+                    <p id="Condition"></p>
+                </div>
+
+                <div id="Details">
+                    <div>
+                        <p>Wind</p>
+                        <p><img src="Images/wind-solid.svg"></p>
+                        <p id="Wind"></p>
+                    </div>
+                    <div>
+                        <p>Feeling</p>
+                        <p><img src="Images/temperature-three-quarters-solid.svg"></p>
+                        <p id="FeelsLike"></p>
+                    </div>
+                    <div>
+                        <p>Rain</p>
+                        <p><img src="Images/droplet-solid.svg"></p>
+                        <p id="Rainchance"></p>
+                    </div>
+                </div>
+
             </div>
 
-            <label class="switch" for="checkbox">
-                <input type="checkbox" id="checkbox"/>
-                <div class="slider round"></div>
-            </label>
-            <a href="https://github.com/GeneZijlboot/Weather-App" id="MadeBy">Copyright © Gene Zijlmans</a>
+            <!-- Search Bar -->
+            <form>
+                <button id="SubmitBtn" type="submit"><i class="fa fa-search"></i></button>
+                <input id="UserInput" type="text" placeholder="Search Location...">
+            </form>
         </div>
         <script src="script.js"></script>
     </body>
